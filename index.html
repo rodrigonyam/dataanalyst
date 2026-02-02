@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Chen - Business Intelligence Analyst</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item::before {
+            content: '•';
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2.5rem;
+            padding: 2.5rem;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section {
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #f1f5f9;
+        }
+
+        .experience-item:hover {
+            border-left-color: #3b82f6;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .company {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .job-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #eff6ff;
+            color: #1e40af;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: #dbeafe;
+            transform: translateY(-1px);
+        }
+
+        .skill-tag.highlight {
+            background: #1e293b;
+            color: white;
+            border-color: #1e293b;
+        }
+
+        .education-item {
+            margin-bottom: 1rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .school {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            border: 1px solid #fcd34d;
+        }
+
+        .summary-box {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .highlight-stat {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <h1 class="name">Sarah Chen</h1>
+            <div class="title">Business Intelligence Analyst</div>
+            <div class="contact-grid">
+                <span class="contact-item">sarah.chen@email.com</span>
+                <span class="contact-item">(555) 123-4567</span>
+                <span class="contact-item">San Francisco, CA</span>
+                <span class="contact-item">linkedin.com/in/sarahchen</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-column">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary-box">
+                        Results-driven Business Intelligence Analyst with <strong>2+ years of experience</strong> transforming complex datasets into strategic insights. Specialized in <strong>SQL optimization</strong>, <strong>Tableau dashboard development</strong>, and <strong>Python automation</strong> for data pipelines. Proven track record of building self-service analytics solutions that reduced reporting time by 40% and improved data-driven decision making across cross-functional teams. Passionate about data storytelling and translating technical findings into actionable business recommendations.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="job-title">Data Analyst</div>
+                            <div class="job-date">Jan 2023 – Present</div>
+                        </div>
+                        <div class="company">TechFlow Solutions, San Francisco, CA</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Designed and maintained <strong>12+ interactive Tableau dashboards</strong> tracking KPIs for Sales, Marketing, and Product teams, enabling real-time decision making</li>
+                                <li>Optimized complex SQL queries (PostgreSQL, Snowflake) reducing data extraction time by <span class="highlight-stat">65%</span> and improving dashboard refresh rates</li>
+                                <li>Built Python scripts (pandas, NumPy) to automate weekly reporting processes, saving <strong>15 hours/week</strong> of manual work</li>
+                                <li>Collaborated with stakeholders to define metrics requirements and presented data insights to executive leadership monthly</li>
+                                <li>Implemented data quality checks and validation processes, improving reporting accuracy to <span class="highlight-stat">99.2%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="job-title">Junior BI Analyst</div>
+                            <div class="job-date">Jun 2022 – Dec 2022</div>
+                        </div>
+                        <div class="company">RetailNext Analytics, Oakland, CA</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Developed Tableau visualizations for retail client portfolio analyzing <strong>$50M+ in quarterly revenue</strong> trends</li>
+                                <li>Created SQL stored procedures and views to streamline data extraction from multiple source systems</li>
+                                <li>Assisted in data modeling projects using Python (scikit-learn) for customer segmentation analysis</li>
+                                <li>Maintained documentation for data dictionaries and BI best practices, improving team onboarding efficiency</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="job-title">Data Analytics Intern</div>
+                            <div class="job-date">Sep 2021 – May 2022</div>
+                        </div>
+                        <div class="company">University Research Center, Berkeley, CA</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Cleaned and analyzed datasets of 100K+ records using Python and R for academic research projects</li>
+                                <li>Created visualizations and statistical reports supporting published research on consumer behavior trends</li>
+                                <li>Developed automated data collection pipelines using Python APIs, reducing data gathering time by 30%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Key Projects</h2>
+                    <div class="experience-item">
+                        <div class="job-title">Customer Churn Prediction Dashboard</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Built end-to-end Tableau dashboard integrating Python-based predictive model (85% accuracy) to identify at-risk customers</li>
+                                <li>Reduced customer churn by <span class="highlight-stat">12%</span> through early intervention strategies based on dashboard insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="job-title">Automated Sales Reporting System</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Designed SQL + Python automation framework delivering daily sales reports to 50+ stakeholders via email integration</li>
+                                <li>Eliminated manual report generation, saving estimated <span class="highlight-stat">$25K annually</span> in labor costs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <span class="skill-tag highlight">Tableau</span>
+                        <span class="skill-tag highlight">SQL (Advanced)</span>
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">dbt</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Looker</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="degree">B.S. in Statistics & Data Science</div>
+                        <div class="school">University of California, Berkeley<br>Graduated: May 2022</div>
+                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 0.5rem;">GPA: 3.7/4.0 | Dean's List</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Relevant Coursework</div>
+                        <div class="school" style="font-size: 0.85rem; color: #64748b;">
+                            Database Systems, Machine Learning, Statistical Modeling, Data Visualization, Business Analytics
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.25rem;">Tableau Desktop Specialist</div>
+                        <div style="font-size: 0.85rem; color: #64748b;">Tableau Software, 2023</div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.25rem;">SQL for Data Science</div>
+                        <div style="font-size: 0.85rem; color: #64748b;">University of California (Coursera), 2022</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.25rem;">Python Data Analyst</div>
+                        <div style="font-size: 0.85rem; color: #64748b;">DataCamp, 2022</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Core Competencies</h2>
+                    <div class="job-description">
+                        <ul style="font-size: 0.9rem;">
+                            <li>Data Storytelling & Visualization</li>
+                            <li>Cross-functional Collaboration</li>
+                            <li>Requirements Gathering</li>
+                            <li>Statistical Analysis</li>
+                            <li>ETL Process Optimization</li>
+                            <li>Stakeholder Communication</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
